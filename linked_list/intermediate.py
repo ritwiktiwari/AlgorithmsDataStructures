@@ -55,11 +55,11 @@ class LinkedList(object):
             print("Linked List is already empty")
         else:
             current_head = self.head
-            while current_head.nextNode is not None:
+            while current_head.nextNode.nextNode is not None:
                 current_head = current_head.nextNode
             current_node = current_head
             current_head.nextNode = None
-            del current_node.nextNode
+            del current_node
             self.counter-=1    
         
  
