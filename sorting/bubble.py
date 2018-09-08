@@ -1,11 +1,10 @@
-def bubble_sort(arr):
-    for n in range(len(arr)-1,0,-1):
-        for k in range(n):
-            if arr[k]>arr[k+1]:
-                arr[k], arr[k+1] = arr[k+1], arr[k]
+def bubble(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr)-1-i):
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1] = arr[j+1],arr[j]
     return arr
 
 
-array = [15,8,6,7,20]
-print(bubble_sort(array))
-print(sorted(array))
+array = [15, 8, 5, 9, 12,6, 7, 20]
+print(bubble(array))
