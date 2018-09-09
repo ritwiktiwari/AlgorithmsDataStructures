@@ -9,7 +9,7 @@ def quicksort(arr,low,high):
         quicksort(arr,pivot+1,high)
 
 def partition(arr,low,high):
-    pivot = random.randint(low,high)
+    pivot = random.randint(low,high+1)
     arr[pivot],arr[high] = arr[high],arr[pivot]
     i = low
     for j in range(low,high):
