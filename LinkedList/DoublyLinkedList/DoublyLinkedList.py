@@ -117,3 +117,70 @@ class DoublyLinkedList:
             current.get_next_node().set_previous_node(new_node)
             current.set_next_node(new_node)
             self._increase_length()
+
+    def delete_at_beginning(self) -> None:
+        """
+        delete an element from the beginning of the list,
+        time complexity = O(1), only moving the pointer
+        space complexity = O(1), for creating a temporary variable
+        :return item deleted otherwise None
+        """
+        current = self.head
+        if current is None:
+            return None
+        else:
+            self.head = self.head.get_next_node()
+            self.head.set_previous_node(None)
+            temp = current.get_data()
+            del current
+            self._decrease_length()
+            return temp
+
+    def delete_at_end(self) -> None:
+        """
+        delete an element from the end of the list,
+        time complexity = O(n), since we are scanning the entire list
+        space complexity = O(1), for creating a temporary variable
+        :return item deleted otherwise None
+        """
+        previous = self.head
+        current = self.head
+        if current is None:
+            return None
+        else:
+            while current.has_next():
+                previous = current
+                current = current.get_next_node()
+            previous.set_next_node(None)
+            temp = current.get_data()
+            del current
+            self._decrease_length()
+            return temp
+
+    def delete_after_position(self, position: int) -> None:
+        """
+        delete an element from the desired position in the list,
+        time complexity = O(n), since in worst case we may insert at the end
+        space complexity = O(1), for creating a temporary variable
+        :return item deleted otherwise None
+        """
+        if self.get_length() < position:
+            return
+        elif self.get_length() == 0:
+            return self.delete_at_beginning()
+        elif self.get_length() == position:
+            return self.delete_at_end()
+        else:
+            previous = self.head
+            current = self.head
+            for _ in range(position):
+                previous = current
+                current = current.get_next_node()
+            previous.set_next_node(current.get_next_node())
+            current.get_next_node().set_previous_node(previous)
+            current.set_next_node(None)
+            current.set_previous_node(None)
+            temp = current.get_data()
+            del current
+            self._decrease_length()
+            return temp
