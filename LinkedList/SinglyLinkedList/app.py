@@ -1,0 +1,23 @@
+from LinkedList import LinkedList
+
+
+ll = LinkedList()
+ll.insert_after_position(101, 0)
+ll.insert_at_end(24)
+ll.insert_at_beginning(5)
+ll.insert_at_beginning(4)
+ll.insert_at_beginning(3)
+ll.insert_at_beginning(2)
+ll.insert_at_beginning(1)
+ll.insert_at_end(6)
+ll.insert_at_end(7)
+ll.insert_at_end(8)
+ll.insert_after_position(100, 5)
+ll.insert_at_end(240)
+print(ll.traverse())
+ll.delete_at_beginning()
+print(ll.traverse())
+ll.delete_at_end()
+print(ll.traverse())
+ll.delete_after_position(5)
+print(ll.traverse())
