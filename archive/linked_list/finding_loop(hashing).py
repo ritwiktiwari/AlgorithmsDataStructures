@@ -39,6 +39,6 @@ link.insert(15)
 link.insert(10)
 link.print_list()
 
-# link.head.nextNode.nextNode.nextNode.nextNode = link.head
+# link.last.nextNode.nextNode.nextNode.nextNode = link.last
 
 print(link.detect_loop())

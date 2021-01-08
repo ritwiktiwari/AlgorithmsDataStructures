@@ -30,7 +30,7 @@ class LinkedList(object):
         reverse_link_list.print_list()
 
     def reverse_inplace(self):
-        # init previous and current as none; current as head
+        # init previous and current as none; current as last
         previous = None
         current = self.head
         next = None
