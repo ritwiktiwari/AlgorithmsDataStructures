@@ -13,7 +13,7 @@ class Stack:
         self.head = None
         self.size = 0
 
-    def insert(self, data):
+    def push(self, data):
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
@@ -39,11 +39,11 @@ class Stack:
 
 
 stack = Stack()
-stack.insert(5)
-stack.insert(4)
-stack.insert(3)
-stack.insert(2)
-stack.insert(1)
+stack.push(5)
+stack.push(4)
+stack.push(3)
+stack.push(2)
+stack.push(1)
 print(stack.pop())
 print(stack.size)
 print(stack.show())
