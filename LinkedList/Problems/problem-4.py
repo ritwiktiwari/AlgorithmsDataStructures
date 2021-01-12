@@ -1,4 +1,4 @@
-# Find Loop in the Linked List
+# Check whether the linked list is terminated by None, if not find the length of the cycle
 
 from LinkedList import Node
 
