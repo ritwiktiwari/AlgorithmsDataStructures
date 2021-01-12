@@ -17,9 +17,12 @@ class LinkedList:
     def append(self, data):
         new_node = Node(data)
         current = self.head
-        while current.next_node is not None:
-            current = current.next_node
-        current.next_node = new_node
+        if current is not None:
+            while current.next_node is not None:
+                current = current.next_node
+            current.next_node = new_node
+        else:
+            self.head = new_node
 
     def show(self):
         data = ""
