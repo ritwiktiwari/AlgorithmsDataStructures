@@ -16,6 +16,11 @@ h.next_node = c
 
 
 def tortoise_hare(head):
+    """
+    Also known as Floyd Cycle Finding Algorithm
+    :param head:
+    :return:
+    """
     tortoise = hare = head
     while hare is not None:
         tortoise = tortoise.next_node
