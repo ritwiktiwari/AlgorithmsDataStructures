@@ -16,7 +16,7 @@ def insert(array: list, value: int) -> list:
     return array
 
 
-def insert_iterative(array: list, value: int):
+def insert_iterative(array: list, value: int) -> list:
     """
     Insert element iteratively
     """
@@ -30,12 +30,11 @@ def insert_iterative(array: list, value: int):
     return array
 
 
-def sort(array: list):
-    if len(array) < 1:
-        return array
-    temp = array.pop()
-    sort(array)
-    insert(array, temp)
+def sort(array: list) -> list:
+    if not len(array) < 1:
+        temp = array.pop()
+        sort(array)
+        insert(array, temp)
     return array
 
 

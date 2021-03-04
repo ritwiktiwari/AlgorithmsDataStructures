@@ -4,7 +4,8 @@ Sort a stack using recursion
 
 from Stack import Stack
 
-def insert(stack, value):
+
+def insert(stack: Stack, value: int) -> Stack:
     if stack.elements < 1 or stack.top() < value:
         stack.push(value)
     else:
@@ -14,9 +15,9 @@ def insert(stack, value):
     return stack
 
 
-def sort(stack):
+def sort(stack: Stack) -> Stack:
     if stack.elements < 1:
-        return stack
+        pass
     else:
         temp = stack.pop()
         sort(stack)
