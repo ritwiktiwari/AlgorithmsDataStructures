@@ -1,19 +1,23 @@
 """
-Permutation with spaces
+k-th symbol in grammar
 """
 
 
-def permutation_with_spaces(input_string: str, output: str):
-    if len(input_string) < 1:
-        print(output, end="\n")
-        return
+def invert(x: int) -> int:
+    if x == 1:
+        return 0
     else:
-        output1 = output + " " + input_string[0]
-        output2 = output + input_string[0]
-        input_string = input_string[1:]
-        permutation_with_spaces(input_string, output1)
-        permutation_with_spaces(input_string, output2)
+        return 1
 
 
-my_string = "ABC"
-permutation_with_spaces(my_string[1:], my_string[0])
+def k_symbol(n: int, k: int) -> int:
+    mid = 2 ** (n - 2)
+    if k == 1 and n == 1:
+        return 0
+    if k <= mid:
+        return k_symbol(n - 1, k)
+    elif k > mid:
+        return invert(k_symbol(n - 1, k - mid))
+
+
+print(k_symbol(4, 2))

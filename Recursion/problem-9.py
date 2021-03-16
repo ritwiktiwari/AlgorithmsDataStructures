@@ -1,19 +1,24 @@
 """
-Permutation with case change
+Tower of Bramha
+Tower of Hanoi
+3 Tower
+3 Rods
 """
 
+steps = 0
 
-def permutation_with_case_change(input_string: str, output_string: str):
-    if len(input_string) < 1:
-        print(output_string)
+
+def tower(disks: int, source: str, destination: str, middle: str):
+    global steps
+    steps += 1
+    if disks == 1:
+        print(f"Moving disk {disks} from {source} -> {destination}")
         return
     else:
-
-        output_string1 = output_string + input_string[0].upper()
-        output_string2 = output_string + input_string[0]
-        input_string = input_string[1:]
-        permutation_with_case_change(input_string, output_string1)
-        permutation_with_case_change(input_string, output_string2)
+        tower(disks - 1, source, middle, destination)
+        print(f"Moving disk {disks} from {source} -> {destination}")
+        tower(disks - 1, middle, destination, source)
 
 
-permutation_with_case_change("ab", "")
+tower(disks=4, source='A', destination='C', middle='B')
+print("Total steps:", steps)
