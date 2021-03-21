@@ -7,8 +7,8 @@ def knapsack(weight: list, value: list, w: int, n: int) -> int:
         return knapsack(weight, value, w, n - 1)
 
 
-weight_list = [1, 3, 4, 5]
-value_list = [1, 4, 5, 7]
-max_weight = 7
+value_list = [60, 100, 120]
+weight_list = [10, 20, 30]
+max_weight = 50
 
 print(knapsack(weight_list, value_list, max_weight, len(weight_list)))
