@@ -12,8 +12,8 @@ def equal_sum_partition(arr):
         for i in range(1, s + 1):
             t[0][i] = False
 
-        for i in range(n + 1):
-            for j in range(s + 1):
+        for i in range(1, n + 1):
+            for j in range(1, s + 1):
                 if arr[i - 1] <= j:
                     t[i][j] = t[i - 1][j - arr[i - 1]] or t[i - 1][j]
                 else:
