@@ -1,5 +1,5 @@
 def print_lcs(x: str, y: str, m: int, n: int):
-    t = [[0 for _ in range(m + 1)] for _ in range(n + 1)]
+    t = [[0 for _ in range(n + 1)] for _ in range(m + 1)]
 
     for i in range(1, m + 1):
         for j in range(1, n + 1):
@@ -28,3 +28,4 @@ a = "abcde"
 b = "abfce"
 
 print(print_lcs(a, b, len(a), len(b)))
+print(print_lcs("acbcf", "abcdaf", len("acbcf"), len("abcdaf")))
