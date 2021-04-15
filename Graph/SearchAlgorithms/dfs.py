@@ -1,27 +1,30 @@
-class Node:
-    def __init__(self, name):
-        self.name = name
-        self.adjacency_list = []
-        self.visited = False
+from collections import defaultdict
 
 
-def dfs(start_node: Node):
-    start_node.visited = True
-    print(start_node.name)
-    for neighbour in start_node.adjacency_list:
-        if not neighbour.visited:
-            dfs(neighbour)
+class Graph:
+    def __init__(self):
+        self.graph = defaultdict(list)
+        self.visited = []
+
+    def add_edge(self, u, v):
+        self.graph[u].append(v)
+        self.visited.append(False)
+
+    def dfs(self, source):
+        if self.visited[source]:
+            return
+        self.visited[source] = True
+        print(source, end=" ")
+        neighbours = self.graph[source]
+        for next_vertex in neighbours:
+            self.dfs(next_vertex)
 
 
-node1 = Node('A')
-node2 = Node('B')
-node3 = Node('C')
-node4 = Node('D')
-node5 = Node('E')
-
-node1.adjacency_list.append(node2)
-node1.adjacency_list.append(node4)
-node2.adjacency_list.append(node5)
-node5.adjacency_list.append(node3)
-
-dfs(node1)
+g = Graph()
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(1, 2)
+g.add_edge(2, 0)
+g.add_edge(2, 3)
+g.add_edge(3, 3)
+g.dfs(2)

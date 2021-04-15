@@ -1,31 +1,32 @@
-class Node:
-    def __init__(self, name):
-        self.name = name
-        self.adjacency_list = []
-        self.visited = False
+from collections import defaultdict
 
 
-def bfs(start_node):
-    queue = [start_node]
-    start_node.visited = True
-    while queue:
-        current_node = queue.pop(0)
-        print(current_node.name)
-        for neighbour in current_node.adjacency_list:
-            if not neighbour.visited:
-                neighbour.visited = True
-                queue.append(neighbour)
+class Graph:
+    def __init__(self):
+        self.graph = defaultdict(list)
+
+    def add_edge(self, u, v):
+        self.graph[u].append(v)
+
+    def bfs(self, source):
+        visited = [False] * len(self.graph)
+        queue = [source]
+        visited[source] = True
+
+        while len(queue) > 0:
+            current_vertex = queue.pop(0)
+            print(current_vertex, end=" ")
+            for i in self.graph[current_vertex]:
+                if not visited[i]:
+                    visited[i] = True
+                    queue.append(i)
 
 
-node1 = Node('A')
-node2 = Node('B')
-node3 = Node('C')
-node4 = Node('D')
-node5 = Node('E')
-
-node1.adjacency_list.append(node2)
-node1.adjacency_list.append(node4)
-node2.adjacency_list.append(node5)
-node5.adjacency_list.append(node3)
-
-bfs(node1)
+g = Graph()
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(1, 2)
+g.add_edge(2, 0)
+g.add_edge(2, 3)
+g.add_edge(3, 3)
+g.bfs(2)
