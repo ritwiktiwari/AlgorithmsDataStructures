@@ -49,8 +49,7 @@ class Graph:
             adjacent_edges = self.graph[current_node]
             for edge in adjacent_edges:
                 new_distance = distance[current_node] + edge[1]
-                if new_distance < distance[edge[0]]:
-                    distance[edge[0]] = new_distance
+                distance[edge[0]] = min(new_distance, distance[edge[0]])
 
         return distance
 
